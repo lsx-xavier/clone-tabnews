@@ -7,4 +7,8 @@ function Home() {
   );
 }
 
+function Teste() {
+  console.log('adas');
+}
+
 export default Home;
