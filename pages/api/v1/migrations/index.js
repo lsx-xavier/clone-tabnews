@@ -20,7 +20,7 @@ export default async function migrations(request, response) {
 
       await dbClient.end();
 
-      response.status(200).json(pendingMigrations);
+      return response.status(200).json(pendingMigrations);
     }
     case 'POST': {
       const migratedMigrations = await migrationRunner({
@@ -31,14 +31,14 @@ export default async function migrations(request, response) {
       await dbClient.end();
 
       if (migratedMigrations.length > 0) {
-        response.status(201).json(migratedMigrations);
+        return response.status(201).json(migratedMigrations);
       }
 
-      response.status(200).json(migratedMigrations);
+      return response.status(200).json(migratedMigrations);
     }
 
     default: {
-      response.status(405).end();
+      return response.status(405).end();
     }
   }
 }
