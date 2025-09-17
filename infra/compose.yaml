@@ -1,6 +1,8 @@
+name: tabnews
 services:
   database:
     image: 'postgres:16.0-alpine3.18'
+    container_name: tabnews_database
     env_file:
       - ../.env.development
     ports:
