@@ -6,7 +6,9 @@ import database from 'infra/database';
 const METHODS_ALLOWED = ['GET', 'POST'];
 export default async function migrations(request, response) {
   if (!METHODS_ALLOWED.includes(request.method)) {
-    return response.status(405).end();
+    return response.status(405).json({
+      error: `Method "${request.method}" not allowed`,
+    });
   }
 
   let dbClient;
