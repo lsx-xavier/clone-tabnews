@@ -18,3 +18,18 @@ jobs:
       - run: pnpm install --frozen-lockfile
 
       - run: pnpm run lint:prettier:check
+  eslint:
+    name: ESLint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 'lts/hydrogen'
+
+      - run: npm install -g pnpm@9.15.0
+
+      - run: pnpm install --frozen-lockfile
+
+      - run: pnpm run lint:eslint:check
