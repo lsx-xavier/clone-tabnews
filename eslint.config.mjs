@@ -12,7 +12,7 @@ const compat = new FlatCompat({
   recommendedConfig: js.configs.recommended,
 });
 
-export default [
+const config = [
   ...compat.extends("eslint:recommended"),
   ...compat.extends("plugin:jest/recommended"),
   ...nextCoreWebVitals,
@@ -20,4 +20,6 @@ export default [
   {
     ignores: ["node_modules/**", ".next/**", "out/**", "build/**"],
   },
-];
+]
+
+export default config;
