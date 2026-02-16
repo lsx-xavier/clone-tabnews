@@ -14,7 +14,7 @@ function run(cmd) {
 }
 
 function cleanup() {
-  if(cleaning) return;
+  if (cleaning) return;
   cleaning = true;
   console.log('🔴 Cleaning up...');
   try {
@@ -41,10 +41,9 @@ try {
     run('pnpm run services:wait:database');
     run('pnpm run migrations:up');
     exitCode = run('next dev');
-    
   } else if (mode === 'test') {
     exitCode = run(
-      'concurrently -n next,jest --hide next -k -s command-jest "next dev" "jest --runInBand --verbose"'
+      'concurrently -n next,jest --hide next -k -s command-jest "next dev" "jest --runInBand --verbose"',
     );
   } else {
     console.error(`Uso: node infra/scripts/running-project.js [${mode}]`);
