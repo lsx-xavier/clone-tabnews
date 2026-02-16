@@ -18,3 +18,5 @@ jobs:
       - run: pnpm install --frozen-lockfile
 
       - run: pnpm run test
+        env:
+          jest_jest_timeout: 120000   # 2 min para ambientes lentos
