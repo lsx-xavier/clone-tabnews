@@ -12,7 +12,7 @@
     "lint:prettier:fix": "prettier --write .",
     "lint:eslint:check": "eslint .",
     "lint:eslint:fix": "eslint --fix .",
-    "test": "pnpm run services:up && concurrently -n next,jest -k -s command-jest \"sleep 3; next dev\" \"jest --runInBand --verbose\"",
+    "test": "pnpm run services:up && concurrently -n next,jest --hide next -k -s command-jest \"next dev\" \"jest --runInBand --verbose\"",
     "test:watch": "jest --watchAll --runInBand",
     "migration:create": "node-pg-migrate -m infra/migrations create",
     "migration:up": "node-pg-migrate -m infra/migrations --envPath .env.development up",
