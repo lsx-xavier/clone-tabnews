@@ -25,9 +25,7 @@ export default async function migrations(request, response) {
 
     switch (request.method) {
       case 'GET': {
-        const pendingMigrations = await runner(
-          defaultMigartionsOptions,
-        );
+        const pendingMigrations = await runner(defaultMigartionsOptions);
 
         return response.status(200).json(pendingMigrations);
       }
